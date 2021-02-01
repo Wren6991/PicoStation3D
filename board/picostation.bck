@@ -1,0 +1,21 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AT25SF081-SSHD-X
+D 8-Mbit, 2.5V Minimum SPI Serial Flash Memory with Dual-I/O and Quad-I/O Support, SOIC-8
+K SPI DSPI QSPI 8Mbit 2.5V
+F https://www.adestotech.com/wp-content/uploads/DS-AT25SF081_045.pdf
+$ENDCMP
+#
+$CMP AT25SF081-SSHF-X
+D 8-Mbit, 2.3V Minimum SPI Serial Flash Memory with Dual-I/O and Quad-I/O Support, SOIC-8
+K SPI DSPI QSPI 8Mbit 2.3V
+F https://www.adestotech.com/wp-content/uploads/DS-AT25SF081_045.pdf
+$ENDCMP
+#
+$CMP QSPI-Flash-WSON
+D 8-Mbit, 2.5V Minimum SPI Serial Flash Memory with Dual-I/O and Quad-I/O Support, SOIC-8
+K SPI DSPI QSPI 8Mbit 2.5V
+F https://www.adestotech.com/wp-content/uploads/DS-AT25SF081_045.pdf
+$ENDCMP
+#
+#End Doc Library

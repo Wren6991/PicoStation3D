@@ -1,0 +1,40 @@
+# Blink blonk
+set_io led 13
+
+# HyperRAM
+set_io hram_clk   46
+set_io hram_cs_n  47
+set_io hram_rst_n 48
+set_io hram_rwds  45
+set_io hram_dq[0] 37
+set_io hram_dq[1] 42
+set_io hram_dq[2] 44
+set_io hram_dq[3] 35
+set_io hram_dq[4] 34
+set_io hram_dq[5] 36
+set_io hram_dq[6] 38
+set_io hram_dq[7] 43
+
+# GFX-bus host interface (including our main clock source)
+set_io gfx_clk   20
+set_io gfx_dok   16
+set_io gfx_hok   17
+set_io gfx_irq   15
+set_io gfx_dq[0] 32
+set_io gfx_dq[1] 31
+set_io gfx_dq[2] 28
+set_io gfx_dq[3] 27
+set_io gfx_dq[4] 26
+set_io gfx_dq[5] 25
+set_io gfx_dq[6] 23
+set_io gfx_dq[7] 21
+
+# DVI interface (lane order {CLK, D2, D1, D0})
+set_io dvi_p[3] 3
+set_io dvi_n[3] 2
+set_io dvi_p[2] 12
+set_io dvi_n[2] 11
+set_io dvi_p[1] 10
+set_io dvi_n[1] 9
+set_io dvi_p[0] 6
+set_io dvi_n[0] 4

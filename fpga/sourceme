@@ -1,0 +1,17 @@
+# Xilinx junk (isim will **segfault** if these are not set)
+export XILINX="/opt/Xilinx/14.7/ISE_DS/ISE"
+export PATH="$PATH:$XILINX/bin/lin64"
+
+# Project paths
+export PROJ_ROOT=`pwd`
+export SCRIPTS=$PROJ_ROOT/scripts
+export HDL=$PROJ_ROOT/hdl
+export LIBFPGA=$HDL/libfpga
+export SOFTWARE=$PROJ_ROOT/software
+
+# Add scripts to PATH, for convenience (e.g. listfiles, regblock) Makefiles do
+# not rely on this, but it's handy if you use the  tools manually.
+export PATH="$PATH:$SCRIPTS"
+
+# Other tools
+export PATH="$PATH:/opt/riscv/bin"
