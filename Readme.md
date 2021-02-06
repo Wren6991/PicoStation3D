@@ -5,7 +5,7 @@ PicoStation 3D
 
 ![Bottom view of board, showing some routing, and the placement of power supply bypass capacitors](img/board_reva_render_bottom.png)
 
-This is an unfinished, untested project to develop a 3D games console based on an RP2040 microcontroller and an iCE40 UP5k FPGA. Quick links:
+This is an **unfinished, untested** project to develop a 3D games console based on an RP2040 microcontroller and an iCE40 UP5k FPGA. Quick links:
 
 - [Board Schematic (PDF)](board/picostation.pdf)
 - [RP2040 Datasheet (PDF)](https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf)
@@ -42,7 +42,7 @@ Project Status
 
 I've laid out a first iteration of the board, and have soldered up a prototype, but haven't had the chance to bring up the board or write any firmware, thanks to being a bit overloaded with the launch of RP2040 itself!
 
-There are questionable decisions in [the schematic](board/picostatoin.pdf) (in particular the power chain violates the UP5k's sequencing requirements) so you shouldn't copy what you see here, but I'm posting this anyway because it might inspire somebody to make something better, and that is more important than me being embarrassed about my shoddy design work.
+There are questionable decisions in [the schematic](board/picostation.pdf) (in particular the power chain violates the UP5k's sequencing requirements) so you shouldn't copy what you see here, but I'm posting this anyway because it might inspire somebody to make something better, and that is more important than me being embarrassed about my shoddy design work.
 
 You can find a proof of concept for direct DVI output from a UP5k FPGA [in this repo](https://github.com/Wren6991/smoldvi).
 
