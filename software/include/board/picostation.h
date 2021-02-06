@@ -25,6 +25,8 @@
 #endif
 
 // W25Q128
+// FIXME graham why is this in platform_defs now
+#undef PICO_FLASH_SIZE_BYTES
 #define PICO_FLASH_SIZE_BYTES (16 * 1024 * 1024)
 
 // ----------------------------------------------------------------------------

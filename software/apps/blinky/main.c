@@ -3,7 +3,7 @@
 int main() {
 	const uint led = PICO_DEFAULT_LED_PIN;
     gpio_init(led);
-    gpio_dir(led, GPIO_OUT);
+    gpio_set_dir(led, GPIO_OUT);
     while (true) {
         gpio_put(led, 1);
         sleep_ms(250);
