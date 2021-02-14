@@ -1,0 +1,42 @@
+// Effectively a Mode-3 SPI TX
+
+.program fpga_spi_config
+.side_set 1
+
+	out x, 1     side 1 ; stall here, but still assert clock high
+	mov pins, x  side 0
+
+% c-sdk {
+static inline void fpga_spi_config_init(PIO pio, uint sm, uint data_pin, uint clk_pin, float clk_div) {
+	uint offset = pio_add_program(pio, &fpga_spi_config_program);
+	pio_gpio_init(pio, data_pin);
+	pio_gpio_init(pio, clk_pin);
+	pio_sm_set_consecutive_pindirs(pio, sm, data_pin, 1, true);
+	pio_sm_set_consecutive_pindirs(pio, sm, clk_pin, 1, true);
+	pio_sm_config c = fpga_spi_config_program_get_default_config(offset);
+	sm_config_set_sideset_pins(&c, clk_pin);
+	sm_config_set_out_pins(&c, data_pin, 1);
+	sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_TX);
+	sm_config_set_clkdiv(&c, clk_div);
+	// Shift to left to get MSB-first (requires data to be left-justified, which we do with write replication)
+	sm_config_set_out_shift(&c, false, true, 8);
+	pio_sm_init(pio, sm, offset, &c);
+	pio_sm_set_enabled(pio, sm, true);
+}
+
+// Use a byte write to replicate 8 bits across full 32 bit bus for free. This
+// gets the data both left- and right-justified in the FIFO!
+static inline void fpga_spi_config_put(PIO pio, uint sm, uint8_t x) {
+	while (pio_sm_is_tx_fifo_full(pio, sm))
+		;
+	*(io_rw_8 *)&pio->txf[sm] = x;
+}
+
+static inline void fpga_spi_config_flush_fifo(PIO pio, uint sm) {
+	uint32_t stall_mask = 1u << (PIO_FDEBUG_TXSTALL_LSB + sm);
+	pio->fdebug = stall_mask;
+	while (!(pio->fdebug & stall_mask))
+		;
+}
+
+%}
